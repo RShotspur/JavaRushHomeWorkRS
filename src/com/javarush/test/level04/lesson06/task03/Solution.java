@@ -5,7 +5,6 @@ package com.javarush.test.level04.lesson06.task03;
 */
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Solution
 {
@@ -13,15 +12,26 @@ public class Solution
     {
         //напишите тут ваш код
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        int one = Integer.parseInt(reader.readLine());
-//        int two = Integer.parseInt(reader.readLine());
-//        int three = Integer.parseInt(reader.readLine());
-        ArrayList<Integer> arrayList = new ArrayList<Integer>(3) {
-            Integer (reader.readLine());
-            Integer.parseInt(reader.readLine());
-            Integer.parseInt(reader.readLine());
+
+        int[] array = new int[3];
+
+        for (int i = 0; i < 3; i++)
+        {
+            array[i] = Integer.parseInt(reader.readLine());
         }
 
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = i; j < 3; j++)
+            {
+                if (array[i] < array[j]){
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            System.out.println(array[i]);
+        }
 
 
     }
