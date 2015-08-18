@@ -10,24 +10,39 @@ public class Solution
 {
     public static void main(String[] args)   throws Exception
     {
-        //напишите тут ваш код
+        //Вводим три числа
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int number1 = Integer.parseInt(reader.readLine());
-        int number2 = Integer.parseInt(reader.readLine());
-        int number3 = Integer.parseInt(reader.readLine());
+        int a = Integer.parseInt(reader.readLine());
+        int b = Integer.parseInt(reader.readLine());
+        int c = Integer.parseInt(reader.readLine());
 
-        {
-            if((number1 > number2) && (number1 < number3)){
-                System.out.println(number1);
-            }
-            else if((number2 > number3) && (number2 < number1)){
-                System.out.println(number2);
-            }
-            else if((number3 > number2) && (number3 < number1)){
-                System.out.println(number3);
-            }
-        }
+        //методом max ищем самое больше среди a b
+        int maxAB = max(a,b);
+        //этим же методом ищем самое большое
+        //среди первой пары и c
+        int max = max(maxAB,c);
 
+        //аналогичный выбор делаем минимального
+        //значения с помощью метода min
+        int minAB = min(a,b);
+        int min = min(minAB, c);
 
+        //если число меньше максимума и больше минимума - печатаем
+        if ((a>min)&&(a<max)) System.out.println(a);
+        if ((b>min)&&(b<max)) System.out.println(b);
+        if ((c>min)&&(c<max)) System.out.println(c);
+    }
+
+    private static int min(int a, int b)
+    {
+        //метод поиска минимального
+        if (a < b) return a;
+        else return b;
+    }
+
+    private static int max(int a, int b)
+    {   //метод поиска максимального
+        if (a > b) return a;
+        else return b;
     }
 }
