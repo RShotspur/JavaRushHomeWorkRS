@@ -29,31 +29,19 @@ public class Solution
     public static void sort(String[] array)
     {
         //напишите тут ваш код
-        for (int i=0; i<array.length-1;){
-            int s = i+1;
-            String temp = null;
-            //сначала отправляем первое и второе значение на сверку
-            if(isGreaterThan(array[i], array[s])){
-                temp = array[s];
-                array[s]=array[i];
-                array[i]=temp;
-                if (i>0) i--;
-            }
-            else i++;
 
+        String temp;
+        for (int i = 0; i < array.length; i++)
+        {
+            for (int j = i; j < array.length; j++)
+            {
+                if(isGreaterThan(array[i], array[j])){
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
         }
-//        String temp;
-//        for (int i = 0; i < array.length - 1; i++)
-//        {
-//            for (int j = i; j < array.length - 1; j++)
-//            {
-//                if(isGreaterThan(array[i], array[j])){
-//                    temp = array[i];
-//                    array[i] = array[j];
-//                    array[j] = temp;
-//                }
-//            }
-//        }
     }
 
     //Метод для сравнения строк: 'а' больше чем 'b'
